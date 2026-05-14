@@ -52,6 +52,7 @@ export default defineConfig({
                             { text: '面图层 PolygonPrimitiveLayer', link: '/layers/polygon-primitive' },
                             { text: '3D白膜图层 Build3DLayer', link: '/layers/build-3d' },
                             { text: '热力图图层 HeatmapLayer', link: '/layers/heatmap' },
+                            { text: '3D雷达 RadarScanner3dLayer', link: '/layers/radar-scanner-3d' },
                         ],
                         collapsed: false,
                     },
