@@ -1,4 +1,4 @@
-name: Deploy BMap3D documentation
+name: Deploy BMap3D site
 
 on:
   push:
@@ -18,7 +18,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      DOCS_BASE: /BMap3D/
+      EXAMPLE_BASE: /BMap3D/
+      DOCS_BASE: /BMap3D/docs/
     steps:
       - name: Checkout repository
         uses: actions/checkout@v6
@@ -43,10 +44,16 @@ jobs:
       - name: Check and build BMap3D
         run: pnpm check
 
+      - name: Assemble Pages site
+        run: |
+          mkdir -p pages-site/docs
+          cp -R example-dist/. pages-site/
+          cp -R docs/.vitepress/dist/. pages-site/docs/
+
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v4
         with:
-          path: docs/.vitepress/dist
+          path: pages-site
 
   deploy:
     name: Deploy GitHub Pages

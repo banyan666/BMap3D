@@ -47,6 +47,8 @@ pnpm docs:build
 
 输出目录分别为 `example-dist/` 和 `docs/.vitepress/dist/`。
 
+GitHub Pages 部署时，示例产物发布到 `/BMap3D/`，VitePress 文档产物发布到 `/BMap3D/docs/`。
+
 ## 完整校验
 
 ```bash

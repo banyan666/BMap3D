@@ -2,7 +2,10 @@
 
 基于 Vue 3、Three.js、d3-geo 与 GSAP 的可交互 3D 行政区地图组件。项目已经包含组件源码、全国底图与纹理资源、陕西省完整示例、类型声明、库构建配置和 VitePress 文档站。
 
-文档站通过 GitHub Actions 自动发布到 `https://banyan666.github.io/BMap3D/`。
+项目通过 GitHub Actions 自动发布：
+
+- 示例页面：`https://banyan666.github.io/BMap3D/`
+- 组件文档：`https://banyan666.github.io/BMap3D/docs/`
 
 ## 本地运行
 
