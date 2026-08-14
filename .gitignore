@@ -1,5 +1,10 @@
-node_modules
+node_modules/
+dist/
+example-dist/
+docs/.vitepress/cache/
+docs/.vitepress/dist/
+*.local
+*.log
 .DS_Store
-dist
-.cache
-.temp
+.idea/
+.vscode/

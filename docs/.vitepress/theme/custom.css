@@ -1,139 +1,137 @@
-
-/**
- * Customize default theme styling by overriding CSS variables:
- * https://github.com/vuejs/vitepress/blob/main/src/client/theme-default/styles/vars.css
- */
 :root {
-    --vp-c-default-1: var(--vp-c-gray-1);
-    --vp-c-default-2: var(--vp-c-gray-2);
-    --vp-c-default-3: var(--vp-c-gray-3);
-    --vp-c-default-soft: var(--vp-c-gray-soft);
-
-    --vp-c-brand-1: var(--vp-c-indigo-1);
-    --vp-c-brand-2: var(--vp-c-indigo-2);
-    --vp-c-brand-3: var(--vp-c-indigo-3);
-    --vp-c-brand-soft: var(--vp-c-indigo-soft);
-
-    --vp-c-tip-1: var(--vp-c-brand-1);
-    --vp-c-tip-2: var(--vp-c-brand-2);
-    --vp-c-tip-3: var(--vp-c-brand-3);
-    --vp-c-tip-soft: var(--vp-c-brand-soft);
-
-    --vp-c-warning-1: var(--vp-c-yellow-1);
-    --vp-c-warning-2: var(--vp-c-yellow-2);
-    --vp-c-warning-3: var(--vp-c-yellow-3);
-    --vp-c-warning-soft: var(--vp-c-yellow-soft);
-
-    --vp-c-danger-1: var(--vp-c-red-1);
-    --vp-c-danger-2: var(--vp-c-red-2);
-    --vp-c-danger-3: var(--vp-c-red-3);
-    --vp-c-danger-soft: var(--vp-c-red-soft);
+  --vp-c-brand-1: #167f91;
+  --vp-c-brand-2: #1c95a7;
+  --vp-c-brand-3: #126d7e;
+  --vp-c-brand-soft: rgba(22, 127, 145, 0.14);
+  --vp-font-family-base: Aptos, "Microsoft YaHei UI", "Microsoft YaHei", sans-serif;
+  --vp-font-family-mono: "Cascadia Code", Consolas, monospace;
+  --vp-home-hero-name-color: transparent;
+  --vp-home-hero-name-background: linear-gradient(110deg, #126d7e 8%, #34b5bd 58%, #e39a51 96%);
 }
 
-/**
- * Component: Button
- * -------------------------------------------------------------------------- */
-
-:root {
-    --vp-button-brand-border: transparent;
-    --vp-button-brand-text: var(--vp-c-white);
-    --vp-button-brand-bg: var(--vp-c-brand-3);
-    --vp-button-brand-hover-border: transparent;
-    --vp-button-brand-hover-text: var(--vp-c-white);
-    --vp-button-brand-hover-bg: var(--vp-c-brand-2);
-    --vp-button-brand-active-border: transparent;
-    --vp-button-brand-active-text: var(--vp-c-white);
-    --vp-button-brand-active-bg: var(--vp-c-brand-1);
+.dark {
+  --vp-c-bg: #091723;
+  --vp-c-bg-alt: #0c1c29;
+  --vp-c-bg-soft: #102330;
+  --vp-c-bg-elv: #122633;
+  --vp-c-divider: rgba(123, 175, 184, 0.18);
+  --vp-c-text-1: #e5f2f1;
+  --vp-c-text-2: #94afb4;
+  --vp-c-brand-1: #64dce7;
+  --vp-c-brand-2: #7ce7ef;
+  --vp-c-brand-3: #40bdca;
+  --vp-c-brand-soft: rgba(100, 220, 231, 0.12);
 }
 
-/**
- * Component: Home
- * -------------------------------------------------------------------------- */
-
-:root {
-    --vp-home-hero-name-color: transparent;
-    --vp-home-hero-name-background: -webkit-linear-gradient(
-            120deg,
-            #bd34fe 30%,
-            #41d1ff
-    );
-
-    --vp-home-hero-image-background-image: linear-gradient(
-            -45deg,
-            #bd34fe 50%,
-            #47caff 50%
-    );
-    --vp-home-hero-image-filter: blur(44px);
+.VPNavBarTitle .title {
+  font-family: Bahnschrift, "Arial Narrow", sans-serif;
+  letter-spacing: 0.08em;
 }
 
-@media (min-width: 640px) {
-    :root {
-        --vp-home-hero-image-filter: blur(56px);
-    }
+.VPHero .name,
+.VPHero .text {
+  font-family: Bahnschrift, "Arial Narrow", "Microsoft YaHei UI", sans-serif;
+  letter-spacing: -0.025em;
 }
 
-@media (min-width: 960px) {
-    :root {
-        --vp-home-hero-image-filter: blur(68px);
-    }
+.VPHero .text {
+  max-width: 760px;
 }
 
-/**
- * Component: Custom Block
- * -------------------------------------------------------------------------- */
-
-:root {
-    --vp-custom-block-tip-border: transparent;
-    --vp-custom-block-tip-text: var(--vp-c-text-1);
-    --vp-custom-block-tip-bg: var(--vp-c-brand-soft);
-    --vp-custom-block-tip-code-bg: var(--vp-c-brand-soft);
+.VPHero .tagline {
+  max-width: 620px;
+  line-height: 1.7;
 }
 
-/**
- * Component: Algolia
- * -------------------------------------------------------------------------- */
-
-.DocSearch {
-    --docsearch-primary-color: var(--vp-c-brand-1) !important;
+.VPFeature {
+  border-radius: 2px !important;
 }
 
-
-/* 自定义侧边栏在最左边，右边撑满宽度 */
-.VPDoc .container {
-    margin: 0 !important;
-}
-@media (min-width: 960px) {
-    .VPDoc:not(.has-sidebar) .content {
-        max-width: 1552px !important;
-    }
-}
-.VPDoc.has-aside .content-container {
-    max-width: 1488px !important;
-}
-@media (min-width: 960px) {
-    .VPDoc:not(.has-sidebar) .container {
-        display: flex;
-        justify-content: center;
-        max-width: 1562px !important;
-    }
-}
-.aside-container {
-    position: fixed;
-    top: 0;
-    padding-top: calc(
-            var(--vp-nav-height) + var(--vp-layout-top-height, 0px) +
-            var(--vp-doc-top-height, 0px) + 10px
-    ) !important;
-    width: 224px;
-    height: 100vh;
-    overflow-x: hidden;
-    overflow-y: auto;
-    scrollbar-width: none;
+.VPButton {
+  border-radius: 2px !important;
 }
 
-/* 自定义h2的间距 */
-.vp-doc h2 {
-    margin: 0px 0 16px;
-    padding-top: 24px;
-    border: none;
+.docs-map-demo {
+  margin: 24px 0;
+  overflow: hidden;
+  border: 1px solid var(--vp-c-divider);
+  background: #081725;
+}
+
+.docs-map-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 45px;
+  padding: 0 14px;
+  border-bottom: 1px solid rgba(123, 175, 184, 0.2);
+  color: #9bb7bc;
+  font-family: var(--vp-font-family-mono);
+  font-size: 10px;
+}
+
+.docs-map-toolbar > span {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.docs-map-toolbar i {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #ffb566;
+}
+
+.docs-map-toolbar i.ready {
+  background: #64dce7;
+  box-shadow: 0 0 8px #64dce7;
+}
+
+.docs-map-toolbar button {
+  padding: 5px 9px;
+  border: 1px solid rgba(123, 175, 184, 0.26);
+  color: #b7ced1;
+  font: inherit;
+  background: transparent;
+  cursor: pointer;
+}
+
+.docs-map-toolbar button + button {
+  margin-left: 7px;
+}
+
+.docs-map-toolbar button:hover {
+  border-color: #64dce7;
+  color: #fff;
+}
+
+.docs-map-stage {
+  position: relative;
+  height: min(540px, 68vh);
+  min-height: 420px;
+}
+
+.docs-map-selection {
+  position: absolute;
+  z-index: 5;
+  right: 18px;
+  bottom: 18px;
+  padding: 8px 11px;
+  border-left: 2px solid #ffb566;
+  color: #eaf7f6;
+  font-size: 11px;
+  background: rgba(7, 20, 33, 0.82);
+}
+
+@media (max-width: 640px) {
+  .docs-map-toolbar {
+    align-items: flex-start;
+    gap: 8px;
+    padding: 10px;
+  }
+
+  .docs-map-stage {
+    min-height: 360px;
+  }
 }

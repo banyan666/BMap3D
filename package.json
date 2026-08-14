@@ -1,10 +1,59 @@
 {
-  "devDependencies": {
-    "vitepress": "2.0.0-alpha.16"
+  "name": "b-map3d",
+  "version": "1.0.0",
+  "private": true,
+  "packageManager": "pnpm@10.28.2",
+  "description": "A Vue 3 component for interactive 3D geographic visualizations.",
+  "type": "module",
+  "main": "./dist/BMap3D.umd.cjs",
+  "module": "./dist/BMap3D.js",
+  "types": "./types/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./types/index.d.ts",
+      "import": "./dist/BMap3D.js",
+      "require": "./dist/BMap3D.umd.cjs"
+    },
+    "./style.css": "./dist/style.css"
   },
+  "files": [
+    "dist",
+    "types",
+    "README.md"
+  ],
   "scripts": {
+    "dev": "vite",
+    "build": "vite build --config vite.lib.config.js",
+    "build:example": "vite build",
+    "preview": "vite preview",
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
-    "docs:preview": "vitepress preview docs"
+    "docs:preview": "vitepress preview docs",
+    "check": "vue-tsc --noEmit && npm run build && npm run build:example && npm run docs:build"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "peerDependencies": {
+    "vue": "^3.4.0"
+  },
+  "dependencies": {
+    "d3-geo": "^3.1.0",
+    "gsap": "^3.12.5",
+    "point-in-polygon": "^1.1.0",
+    "three": "^0.177.0",
+    "three.interactive": "^1.7.0"
+  },
+  "devDependencies": {
+    "@codemirror/lang-json": "^6.0.2",
+    "@codemirror/view": "^6.43.8",
+    "@vitejs/plugin-vue": "^5.2.1",
+    "codemirror": "^6.0.2",
+    "less": "^4.2.0",
+    "typescript": "^5.7.2",
+    "vite": "^5.4.14",
+    "vitepress": "^1.6.3",
+    "vue": "^3.5.13",
+    "vue-tsc": "^2.2.0"
   }
 }

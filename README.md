@@ -1,43 +1,65 @@
-# BMapViewer
-基于Vue3、Vite、Cesium封装的地理信息可视化库。
+# BMap3D
 
-## 如何使用
-1. 确保你的项目有Cesium库，因为该组件依赖Cesium(目前依赖1.118.2版本，其他版本未验证)。
-2. 将BMapViewer复制到你的项目组件库中。
-3. 并且按照如下配置。
-```js
-// vite.config.js
-import { defineConfig } from 'vite'
-import cesium from 'vite-plugin-cesium'
-import vue from '@vitejs/plugin-vue'
+基于 Vue 3、Three.js、d3-geo 与 GSAP 的可交互 3D 行政区地图组件。项目已经包含组件源码、全国底图与纹理资源、陕西省完整示例、类型声明、库构建配置和 VitePress 文档站。
 
-export default defineConfig({
-    plugins:[
-        vue(),
-        cesium()
-    ]
-})
+文档站通过 GitHub Actions 自动发布到 `https://banyan666.github.io/BMap3D/`。
 
+## 本地运行
+
+```bash
+pnpm install
+pnpm dev
 ```
-```js
-// main.js
-import * as Cesium from "cesium";
-import 'cesium/Build/Cesium/Widgets/widgets.css'
-window.Cesium = Cesium
 
+默认示例地址为 `http://localhost:5173`。文档站使用：
+
+```bash
+pnpm docs:dev
 ```
-4. 组件用法可以参考文档。
 
-`文档地址`：[docs](https://banyan666.github.io/BMapViewer-docs/)
+## 构建
 
+```bash
+pnpm build          # 组件库输出到 dist/
+pnpm build:example  # 示例站输出到 example-dist/
+pnpm docs:build     # 文档站输出到 docs/.vitepress/dist/
+pnpm check          # 执行全部检查与构建
+```
 
-该组件若不满足你的需求，可联系作者提供需求，作者会进行开发补充。
+## 使用
 
-# 联系我
-## 邮箱：<EMAIL>15029296293@163.com
-## 微信：bryan_by666
-## QQ：1449301027
+```js
+import { BMap3D } from 'b-map3d'
+import 'b-map3d/style.css'
+```
 
-# 打赏
-<img src="ds_wx.jpg" width="350" />
-<img src="ds_zfb.jpg" width="350" />
+```vue
+<template>
+  <div class="map-host">
+    <BMap3D :data="mapData" @ready="handleReady" />
+  </div>
+</template>
+
+<style>
+.map-host {
+  width: 100%;
+  height: 640px;
+}
+</style>
+```
+
+`mapData.mapJson` 是需要展示的区域 GeoJSON，完整数据结构、事件和实例方法请查看 `docs/`。
+
+## 目录
+
+```text
+three-map/
+├─ src/                 组件与 mini3d 运行时源码
+├─ types/               公共类型声明
+├─ example/             可交互示例及示例 GeoJSON
+├─ docs/                VitePress 文档
+├─ dist/                组件构建产物（构建后生成）
+└─ example-dist/        示例构建产物（构建后生成）
+```
+
+该仓库暂未声明开源许可证，发布或分发前请根据实际归属补充许可证。

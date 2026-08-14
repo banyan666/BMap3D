@@ -1,75 +1,69 @@
 import { defineConfig } from 'vitepress'
 
-// https://vitepress.dev/reference/site-config
 export default defineConfig({
-    base: '/BMapViewer-docs/',
-    title: "BMapViewer",
-    description: "vue3的离线地图",
-    lang: 'zh-CN',
-    // 添加 Vite 相关配置
-    vite: {
-        server: {
-            port: 1234,        // 修改为你想要的端口
-            host: '0.0.0.0',   // 允许外部访问（可选）
-            strictPort: true,  // 如果端口被占用，直接退出而不是尝试下一个可用端口（可选）
-            open: true         // 自动打开浏览器（可选）
-        }
+  lang: 'zh-CN',
+  title: 'BMap3D',
+  description: 'Vue 3 交互式 3D 行政区地图组件',
+  base: process.env.DOCS_BASE || '/',
+  cleanUrls: true,
+  head: [
+    ['meta', { name: 'theme-color', content: '#0a1927' }],
+    ['link', { rel: 'icon', href: "data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 64 64%22><rect width=%2264%22 height=%2264%22 rx=%2212%22 fill=%22%230a1927%22/><path d=%22M12 39 32 13l20 26-20 12z%22 fill=%22none%22 stroke=%22%2364dce7%22 stroke-width=%224%22/><circle cx=%2232%22 cy=%2232%22 r=%225%22 fill=%22%23ffb566%22/></svg>" }],
+  ],
+  themeConfig: {
+    siteTitle: 'BMap3D',
+    nav: [
+      { text: '指南', link: '/guide/getting-started' },
+      { text: '示例', link: '/examples/' },
+      { text: 'API', link: '/api/component' },
+    ],
+    sidebar: [
+      {
+        text: '开始',
+        items: [
+          { text: '快速开始', link: '/guide/getting-started' },
+          { text: '数据与配置', link: '/guide/data' },
+          { text: '自定义资源', link: '/guide/assets' },
+          { text: '开发与构建', link: '/guide/development' },
+        ],
+      },
+      {
+        text: '示例',
+        items: [
+          { text: '完整交互示例', link: '/examples/' },
+          { text: '动态更新', link: '/examples/dynamic' },
+        ],
+      },
+      {
+        text: 'API',
+        items: [
+          { text: 'BMap3D 组件', link: '/api/component' },
+          { text: 'Map3DWorld', link: '/api/world' },
+        ],
+      },
+    ],
+    search: {
+      provider: 'local',
     },
-
-    themeConfig: {
-        // ... 你原有的 themeConfig 配置保持不变
-        nav: [
-            { text: '指南', link: '/introduction/index' },
-        ],
-        sidebar: [
-            {
-                items: [
-                    {
-                        text: '快速入门', items: [
-                            { text: '介绍', link: '/introduction/index' },
-                            { text: 'Hello World!', link: '/introduction/hello' },
-                        ],
-                        collapsed: false,
-                    },
-                    { text: '数据处理 Data', link: '/data' },
-                    { text: '综合应用', link: '/examples' },
-                    { text: '组件 BMapViewer', link: '/component/index' },
-                    { text: 'useCesium', link: '/component/use-cesium' },
-                    {
-                        text: '可视化图层 MapLayers', items: [
-                            { text: '底图图层 BaseMapLayer', link: '/layers/base-map' },
-                            { text: '图标图层 IconGroupLayer', link: '/layers/icon-group' },
-                            { text: '文字图层 LabelGroupLayer', link: '/layers/label-group' },
-                            { text: '气泡图层 BubbleGroupLayer', link: '/layers/bubble-group' },
-                            { text: '广告牌图层 BubbleLayer ', link: '/layers/bubble-dom' },
-                            { text: '圆图层 CircleGroupLayer', link: '/layers/circle-group' },
-                            { text: '圆爆炸图层 CircleExplosionLayer', link: '/layers/circle-explosion' },
-                            { text: '水波纹图层 CircleWaveLayer', link: '/layers/circle-wave' },
-                            { text: '点扩散图层 PointRippleLayer', link: '/layers/point-ripple' },
-                            { text: '线图层 LineGroupLayer', link: '/layers/line-group' },
-                            { text: '线图层 LinePrimitiveLayer', link: '/layers/line-primitive' },
-                            { text: '线图层 LineMaterialLayer', link: '/layers/line-material' },
-                            { text: '面图层 PolygonPrimitiveLayer', link: '/layers/polygon-primitive' },
-                            { text: '3D白膜图层 Build3DLayer', link: '/layers/build-3d' },
-                            { text: '热力图图层 HeatmapLayer', link: '/layers/heatmap' },
-                            { text: '3D雷达 RadarScanner3dLayer', link: '/layers/radar-scanner-3d' },
-                        ],
-                        collapsed: false,
-                    },
-                    { text: '拾取工具 PickTools', link: '/tools/pick-tool' },
-                    { text: '空间分析工具库 turf', link: '/tools/turf' },
-                ]
-            }
-        ],
-        socialLinks: [
-            { icon: 'github', link: 'https://github.com/banyan666/BMapViewer' },
-            { icon: {
-                svg:'<svg t="1775203934517" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2543" width="128" height="128"><path d="M512 0c282.784 0 512 229.216 512 512s-229.216 512-512 512S0 794.784 0 512 229.216 0 512 0z m189.952 752l11.2-108.224c-31.904 9.536-100.928 16.128-147.712 16.128-134.464 0-205.728-47.296-195.328-146.304 11.584-110.688 113.152-145.696 232.64-145.696 54.784 0 122.432 8.8 151.296 18.336L768 272.704C724.544 262.24 678.272 256 599.584 256c-203.2 0-388.704 94.88-406.4 263.488C178.336 660.96 303.584 768 535.616 768c80.672 0 138.464-6.432 166.336-16z" fill="#CE000D" p-id="2544"></path></svg>'},
-                link: 'https://blog.csdn.net/A15029296293'
-            }
-        ],
-        search: {
-            provider: 'local'
-        },
+    outline: {
+      level: [2, 3],
+      label: '本页目录',
     },
+    docFooter: {
+      prev: '上一页',
+      next: '下一页',
+    },
+    lastUpdated: {
+      text: '最后更新',
+      formatOptions: {
+        dateStyle: 'medium',
+        timeStyle: 'short',
+      },
+    },
+    footer: {
+      message: 'BMap3D · Vue 3 spatial component',
+      copyright: 'Built with VitePress',
+    },
+  },
+  lastUpdated: true,
 })
