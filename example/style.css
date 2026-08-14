@@ -112,6 +112,51 @@ a:focus-visible {
   letter-spacing: 0.06em;
 }
 
+.topbar-tools {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.docs-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 34px;
+  padding: 0 13px;
+  border: 1px solid rgba(100, 220, 231, 0.3);
+  color: #dceff0;
+  font-size: 11px;
+  text-decoration: none;
+  background: rgba(14, 42, 55, 0.72);
+  clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 0 100%);
+  transition: border-color 160ms ease, color 160ms ease, background 160ms ease, transform 160ms ease;
+}
+
+.docs-link span,
+.docs-link i {
+  font-family: "Cascadia Code", Consolas, monospace;
+}
+
+.docs-link span {
+  color: #64dce7;
+  font-size: 8px;
+  letter-spacing: 0.1em;
+}
+
+.docs-link i {
+  color: #ffb566;
+  font-size: 13px;
+  font-style: normal;
+}
+
+.docs-link:hover {
+  border-color: #64dce7;
+  color: #fff;
+  background: rgba(100, 220, 231, 0.1);
+  transform: translateY(-1px);
+}
+
 .pulse-dot {
   width: 7px;
   height: 7px;
@@ -751,6 +796,14 @@ a:focus-visible {
 
   .brand small,
   .topbar-status {
+    display: none;
+  }
+
+  .topbar-tools {
+    gap: 0;
+  }
+
+  .docs-link span {
     display: none;
   }
 

@@ -9,9 +9,16 @@
         </span>
       </a>
 
-      <div class="topbar-status" aria-live="polite">
-        <span class="pulse-dot" :class="{ pending: !ready }"></span>
-        {{ ready ? '场景在线' : `资源同步 ${progress}%` }}
+      <div class="topbar-tools">
+        <a class="docs-link" :href="docsUrl">
+          <span>DOCS / API</span>
+          组件文档
+          <i aria-hidden="true">↗</i>
+        </a>
+        <div class="topbar-status" aria-live="polite">
+          <span class="pulse-dot" :class="{ pending: !ready }"></span>
+          {{ ready ? '场景在线' : `资源同步 ${progress}%` }}
+        </div>
       </div>
     </header>
 
@@ -170,6 +177,7 @@ import { createMapData, provinceData } from './data/map-data.js'
 import JsonCodeEditor from './components/JsonCodeEditor.vue'
 
 const mapRef = ref(null)
+const docsUrl = `${import.meta.env.BASE_URL}docs/`
 const ready = ref(false)
 const playing = ref(true)
 const progress = ref(0)
