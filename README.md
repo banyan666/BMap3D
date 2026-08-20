@@ -4,8 +4,8 @@
 
 项目通过 GitHub Actions 自动发布：
 
-- 示例页面：`https://banyan666.github.io/BMap3D/`
-- 组件文档：`https://banyan666.github.io/BMap3D/docs/`
+- 示例页面[https://banyan666.github.io/BMap3D/](https://banyan666.github.io/BMap3D/)
+- 组件文档[https://banyan666.github.io/BMap3D/docs/](https://banyan666.github.io/BMap3D/docs/)
 
 ## 本地运行
 
